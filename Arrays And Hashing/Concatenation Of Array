@@ -1,0 +1,13 @@
+class Solution {
+public:
+    vector<int> getConcatenation(vector<int>& nums) {
+        vector<int> ans=nums; 
+        //create new vector ans, and is a copy of input vector nums
+
+        ans.insert(ans.end(), nums.begin(), nums.end()); 
+        //appends all elements of nums to the end of ans
+        //insert tells the vector to insert these elements at the end of ans
+        
+        return ans;
+    }
+};
