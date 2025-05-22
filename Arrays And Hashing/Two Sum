@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n=nums.size();
+        //write down the number and index in a seperate HashMap
+        unordered_map<int, int> hashMap;
+        for(int i=0;i<n;i++){
+            //difference should be target minus the number at the index (i)
+            int diff=target-nums[i];
+            //check if diff matches a number in list
+            // .end() tells you that searching failed 
+            // != means that diff was found in hashmap
+            if(hashMap.find(diff) != hashMap.end()){
+                return{hashMap[diff], i}; //return diff number and index
+            }
+            hashMap.insert({nums[i], i}); //if wasnt found, insert the number and index in hashmap
+        }
+        return {}; //return empty list
+    }
+};
