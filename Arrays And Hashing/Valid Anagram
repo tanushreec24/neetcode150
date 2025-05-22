@@ -1,0 +1,31 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        // if lengths of s and t are different, then they arent anagrams
+        if(s.length()!=t.length()){
+            return false;
+        }
+        //create a vector list with 26 zeros, count will help find how many times a letter appears
+        vector<int> count(26,0);
+
+        //start a loop that goes through each character of s and t
+        for(int i=0;i<s.length(); i++){
+
+            //turning letters into numbers (imagine alphabet like lockers)
+            //for everytime we see a letter in s, increment (drop a marble)
+            //for everytime we see a letter in t, decrement (remove a marble)
+            //if s and t are made of same numbers, they will even out (locker become zero)
+            
+            count[s[i] - 'a']++;
+            count[t[i] - 'a']--;
+        }
+
+        //check each value in count list
+        for (int num:count){
+            if(num!=0){ //if basket is not zero which means its not empty
+                return false;
+            }
+        }
+        return true; //basket is zero :)
+    }
+};
