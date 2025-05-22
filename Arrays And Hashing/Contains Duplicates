@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        //creates empty set seen, can only hold unique values
+        unordered_set<int> seen; 
+
+        //for-each loop, goes through every number num in nums
+        for(int num:nums){
+
+            //is num already in the set seen? 
+            if(seen.count(num)){
+
+                return true; //yes - duplicate number
+            }
+            seen.insert(num); //no - insert new element in, seen 
+        }
+        return false;
+    }
+};
+
+//summary- fast, and works for large lists as well
